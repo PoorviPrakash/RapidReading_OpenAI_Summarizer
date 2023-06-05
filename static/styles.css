@@ -1,0 +1,74 @@
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+textarea {
+    width: 95%;
+    padding: 10px;
+    border: none;
+    background-color: #292929;
+    color: #fff;
+    resize: vertical;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#loading {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#resultContainer {
+    display: none;
+    margin-top: 20px;
+}
+
+#result {
+    font-size: 18px;
+}
+
+#exportButton {
+    margin-top: 10px;
+}
+
+/* ChatGPT Dark Mode Theme */
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+textarea {
+    background-color: #292929;
+}
+
+button {
+    background-color: #007bff;
+}
+
+#loading {
+    color: #007bff;
+}
+
+#result {
+    color: #fff;
+}
+
+#fileStatus {
+    display: none;
+    margin-top: 20px;
+}
+
+#fileStatusResult {
+    font-size: 18px;
+}

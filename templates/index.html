@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rapid Reading</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+
+    <script>
+      function showLoading() {
+        document.getElementById("loading").style.display = "block";
+      }
+
+      function hideLoading() {
+        document.getElementById("loading").style.display = "none";
+      }
+
+      /* AJAX call to send data to the backend to get info from ChatGPT */
+      function getResults() {
+        var input = document.getElementById("input_data").value;
+
+        showLoading();
+
+        fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ input_data: input }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("result").textContent = data.result;
+            document.getElementById("resultContainer").style.display = "block";
+            hideLoading();
+          });
+      }
+
+      /* AJAX call to send data to the backend to parse into excel */
+      function exportToExcel() {
+        var listData = document.getElementById("result").innerHTML;
+        console.log(listData);
+        fetch("/excel", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ list_data: listData }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("fileStatusResult").textContent =
+              data.status;
+            document.getElementById("fileStatus").style.display = "block";
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <h1 class="heading">Rapid Reading</h1>
+    <textarea
+      id="input_data"
+      rows="6"
+      cols="20"
+      placeholder="Enter input data"
+    ></textarea
+    ><br />
+    <button type="button" onclick="getResults()">Get Results</button>
+
+    <div id="loading" class="loading">
+      <img src="static/loading.gif" alt="Loading" width="50" height="50" />
+      <p>Fetching results...</p>
+    </div>
+
+    <div id="resultContainer" style="display: none">
+      <h3>Results:</h3>
+      <p id="result"></p>
+      <button id="exportButton" type="button" onclick="exportToExcel()">
+        Export to Excel
+      </button>
+    </div>
+
+    <div id="fileStatus" style="display: none">
+      <p id="fileStatusResult"></p>
+    </div>
+  </body>
+</html>
