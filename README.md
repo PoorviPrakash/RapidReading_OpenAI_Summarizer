@@ -2,6 +2,8 @@
 
 Simple approach to extracting key data from research papers using ChatGPT
 
+Presentation Slides - https://docs.google.com/presentation/d/1wEWF4xYZ_1bqAqaCeppcnlnq0wwJ0hTkTvQCsRPHPN0/edit?usp=sharing
+
 ## Set Up
 
 ### Installing Packages
@@ -44,5 +46,5 @@ file_path = "[YOUR_EXCEL_FILE_PATH]"
 From the directory where medthread.py file is saved, open the terminal and run the following command -
 
 ```bash
-python medthread.py
+python summarizer.py
 ```
