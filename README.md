@@ -29,13 +29,13 @@ To obtain an API key from OpenAI, follow the steps below:
 
 ### Changing the Code
 
-Replace your api key in the medthread.py file as shown below -
+Replace your api key in the summarizer.py file as shown below -
 
 ```python
 openai.api_key = '[YOUR_API_KEY]'
 ```
 
-Replace your excel file path name as well in the medthread.py file as shown below -
+Replace your excel file path name as well in the summarizer.py file as shown below -
 
 ```python
 file_path = "[YOUR_EXCEL_FILE_PATH]"
@@ -43,7 +43,7 @@ file_path = "[YOUR_EXCEL_FILE_PATH]"
 
 ## Running the Application
 
-From the directory where medthread.py file is saved, open the terminal and run the following command -
+From the directory where summarizer.py file is saved, open the terminal and run the following command -
 
 ```bash
 python summarizer.py
